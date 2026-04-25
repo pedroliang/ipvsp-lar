@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-label="Igreja Pão da Vida São Paulo">
+  <g>
+    <!-- Mark -->
+    <circle cx="48" cy="48" r="40" fill="currentColor"/>
+    <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Cross -->
+      <path d="M48 24 L48 70" />
+      <path d="M34 38 L62 38" />
+      <!-- Serif tops -->
+      <path d="M42 24 L54 24" />
+      <!-- Wheat / wave under -->
+      <path d="M30 60 C 38 70, 58 70, 66 60" />
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <g font-family="'Cormorant Garamond', 'Playfair Display', serif" fill="currentColor">
+    <text x="100" y="44" font-size="22" font-weight="700" letter-spacing="2">IGREJA</text>
+    <text x="100" y="68" font-size="22" font-weight="700" letter-spacing="2">PÃO DA VIDA</text>
+    <text x="100" y="86" font-size="11" font-weight="500" letter-spacing="3" font-family="'Inter', sans-serif">SÃO PAULO</text>
+  </g>
+</svg>

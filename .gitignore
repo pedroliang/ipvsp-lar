@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.env
+.env.local
+*.log
+.vscode/
+.idea/
+Thumbs.db
+.supabase-db-password.txt
+.tokens.ps1
+.tokens.sh
+.tokens.local

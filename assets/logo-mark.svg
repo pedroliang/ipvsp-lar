@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="IPVSP">
+  <circle cx="48" cy="48" r="44" fill="#1A1714"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 22 L48 72" />
+    <path d="M32 38 L64 38" />
+    <path d="M42 22 L54 22" />
+    <path d="M28 62 C 38 74, 58 74, 68 62" />
+  </g>
+</svg>

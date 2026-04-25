@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ministério Cuidando do Lar — IPVSP. Escala dos cuidadores e estoque da igreja." />
+  <title>Cuidando do Lar — IPVSP</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top status bar -->
+  <div class="status-bar" id="statusBar" hidden>
+    <span class="status-dot"></span>
+    <span id="statusBarText">Conectado</span>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a href="#inicio" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-name">Igreja Pão da Vida</span>
+        <span class="brand-sub">São Paulo</span>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#destaque" class="nav-item">
+        <span class="nav-dot"></span>
+        Destaque da semana
+      </a>
+      <a href="#escala" class="nav-item">
+        <span class="nav-dot"></span>
+        Escala
+      </a>
+      <a href="#estoque" class="nav-item">
+        <span class="nav-dot"></span>
+        Estoque
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <p class="verse-mini">
+        <em>"Tudo o que fizerem, façam de todo o coração, como para o Senhor."</em>
+        <span>Colossenses 3:23</span>
+      </p>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <header class="topbar">
+      <div class="crumb">
+        <span>Ministério</span>
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" aria-hidden="true"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>Cuidando do Lar</strong>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-ghost" id="refreshBtn" title="Atualizar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Atualizar
+        </button>
+      </div>
+    </header>
+
+    <section id="inicio" class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Ministério de Zeladoria</div>
+        <h1 class="hero-title">Cuidando do <span class="ital">Lar</span></h1>
+        <p class="hero-lede">
+          Servir é cuidar. Aqui acompanhamos a escala dos cuidadores e o que precisamos repor para que cada culto seja vivido em ordem e em amor.
+        </p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#F4A261" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#E76F51" stop-opacity="0.6"/>
+            </linearGradient>
+          </defs>
+          <circle cx="450" cy="180" r="160" fill="url(#g1)" opacity="0.55"/>
+          <circle cx="350" cy="280" r="80" fill="#C9A961" opacity="0.35"/>
+          <path d="M50 350 Q 150 250 250 320 T 550 280" stroke="#1F1B16" stroke-width="1" fill="none" opacity="0.2"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Destaque da semana -->
+    <section id="destaque" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-eyebrow">Próximo domingo</span>
+          <h2 class="section-title">Cuidadores da semana</h2>
+        </div>
+      </div>
+
+      <div class="featured" id="featuredCard">
+        <div class="featured-skeleton">
+          <div class="sk sk-line sk-w-30"></div>
+          <div class="sk sk-line sk-w-60"></div>
+          <div class="sk sk-line sk-w-40"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Escala -->
+    <section id="escala" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-eyebrow">Calendário</span>
+          <h2 class="section-title">Escala da equipe</h2>
+        </div>
+        <div class="section-actions">
+          <div class="year-switch">
+            <button class="year-btn" id="yearPrev" aria-label="Ano anterior">‹</button>
+            <span class="year-display" id="yearDisplay">2026</span>
+            <button class="year-btn" id="yearNext" aria-label="Próximo ano">›</button>
+          </div>
+          <button class="btn-primary" id="addEntryBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Novo registro
+          </button>
+          <button class="btn-secondary" id="addMonthBtn">
+            Preencher mês
+          </button>
+        </div>
+      </div>
+
+      <div class="month-tabs" id="monthTabs"></div>
+
+      <div class="schedule" id="scheduleList">
+        <div class="empty-state">
+          <p>Carregando escala…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estoque -->
+    <section id="estoque" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-eyebrow">Reposição</span>
+          <h2 class="section-title">Estoque da igreja</h2>
+          <p class="section-sub">Coloque aqui o que está faltando. Os colaboradores podem ver em tempo real.</p>
+        </div>
+        <div class="section-actions">
+          <button class="btn-primary" id="addStockBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Adicionar item
+          </button>
+        </div>
+      </div>
+
+      <div class="stock-grid">
+        <div class="stock-col" data-cat="limpeza">
+          <div class="stock-col-head">
+            <div class="stock-col-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V7a3 3 0 1 1 6 0v4"/><rect x="6" y="11" width="12" height="10" rx="2"/><path d="M10 15h4"/></svg>
+            </div>
+            <div>
+              <h3 class="stock-col-title">Material de limpeza</h3>
+              <p class="stock-col-sub" id="cleanCount">—</p>
+            </div>
+          </div>
+          <ul class="stock-list" id="stockListLimpeza"></ul>
+        </div>
+
+        <div class="stock-col" data-cat="comes_bebes">
+          <div class="stock-col-head">
+            <div class="stock-col-icon stock-col-icon--warm" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h12a4 4 0 0 1 0 8H4z"/><path d="M15 14h4a2 2 0 0 0 0-4h-4"/><path d="M7 4v3M11 4v3"/></svg>
+            </div>
+            <div>
+              <h3 class="stock-col-title">Comes &amp; bebes</h3>
+              <p class="stock-col-sub" id="foodCount">—</p>
+            </div>
+          </div>
+          <ul class="stock-list" id="stockListComesBebes"></ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Igreja Pão da Vida — São Paulo · Ministério Cuidando do Lar</p>
+      <p class="footer-mini">Atualizações em tempo real · feito com cuidado</p>
+    </footer>
+  </main>
+
+  <!-- ========================= MODAIS ========================= -->
+
+  <!-- Modal: novo registro de escala -->
+  <div class="modal" id="entryModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="entryModalTitle">
+      <header class="modal-head">
+        <h3 id="entryModalTitle">Novo registro</h3>
+        <button class="modal-close" data-close aria-label="Fechar">×</button>
+      </header>
+      <form id="entryForm" class="form">
+        <input type="hidden" id="entryId" />
+        <div class="form-row">
+          <label class="field">
+            <span>Data do domingo</span>
+            <input type="date" id="entryData" required />
+          </label>
+          <label class="field">
+            <span>Horário</span>
+            <input type="text" id="entryHorario" placeholder="09h30" value="09h30" />
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="field">
+            <span>Cuidador 1</span>
+            <input type="text" id="entryPessoa1" placeholder="Nome" required />
+          </label>
+          <label class="field">
+            <span>Cuidador 2</span>
+            <input type="text" id="entryPessoa2" placeholder="Nome (opcional)" />
+          </label>
+        </div>
+        <label class="field">
+          <span>Observações</span>
+          <textarea id="entryObs" rows="2" placeholder="Algo importante para a equipe daquele domingo"></textarea>
+        </label>
+        <footer class="form-foot">
+          <button type="button" class="btn-ghost" id="entryDeleteBtn" hidden>Remover</button>
+          <span class="form-spacer"></span>
+          <button type="button" class="btn-secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: preencher mês inteiro -->
+  <div class="modal" id="monthModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card modal-card--lg" role="dialog" aria-modal="true">
+      <header class="modal-head">
+        <h3>Preencher mês de uma vez</h3>
+        <button class="modal-close" data-close aria-label="Fechar">×</button>
+      </header>
+      <div class="month-form">
+        <div class="form-row">
+          <label class="field">
+            <span>Mês</span>
+            <select id="monthSelect"></select>
+          </label>
+          <label class="field">
+            <span>Ano</span>
+            <input type="number" id="monthYear" />
+          </label>
+          <label class="field">
+            <span>Horário padrão</span>
+            <input type="text" id="monthHorario" value="09h30" />
+          </label>
+        </div>
+        <p class="form-help">Preencha as duplas para cada domingo. Você pode deixar em branco e editar depois.</p>
+        <div id="monthSundays" class="month-sundays"></div>
+      </div>
+      <footer class="form-foot">
+        <span class="form-spacer"></span>
+        <button type="button" class="btn-secondary" data-close>Cancelar</button>
+        <button type="button" class="btn-primary" id="saveMonthBtn">Salvar mês</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal: novo item de estoque -->
+  <div class="modal" id="stockModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="stockModalTitle">
+      <header class="modal-head">
+        <h3 id="stockModalTitle">Novo item</h3>
+        <button class="modal-close" data-close aria-label="Fechar">×</button>
+      </header>
+      <form id="stockForm" class="form">
+        <input type="hidden" id="stockId" />
+        <label class="field">
+          <span>Item</span>
+          <input type="text" id="stockNome" placeholder="Ex.: Detergente, café, açúcar" required />
+        </label>
+        <div class="form-row">
+          <label class="field">
+            <span>Categoria</span>
+            <select id="stockCategoria">
+              <option value="limpeza">Material de limpeza</option>
+              <option value="comes_bebes">Comes &amp; bebes</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Quantidade</span>
+            <input type="text" id="stockQtd" placeholder="Ex.: 2 pacotes" />
+          </label>
+        </div>
+        <label class="field">
+          <span>Observações</span>
+          <textarea id="stockObs" rows="3" placeholder="Marca preferida, onde guardar, urgência…"></textarea>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="stockUrgente" />
+          <span>Marcar como urgente</span>
+        </label>
+        <label class="field">
+          <span>Adicionado por (opcional)</span>
+          <input type="text" id="stockAutor" placeholder="Seu nome" />
+        </label>
+        <footer class="form-foot">
+          <button type="button" class="btn-ghost btn-danger" id="stockDeleteBtn" hidden>Remover</button>
+          <span class="form-spacer"></span>
+          <button type="button" class="btn-secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden>
+    <span id="toastText"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
